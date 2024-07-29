@@ -1,6 +1,5 @@
 import socket
 import threading
-#import sys
 
 class ChatClient:
     def __init__(self, host, port):
@@ -17,8 +16,6 @@ class ChatClient:
 
         while True:
             message = input()
-#            if message=='/exit':
-#                sys.exit()
             self.client_socket.sendall(message.encode())
 
     def receive_messages(self):
