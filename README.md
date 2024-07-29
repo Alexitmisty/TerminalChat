@@ -20,14 +20,14 @@ client.sh: скрипт для запуска клиента.
 
 ## Конфигурация
 Файл config.json содержит конфигурацию сервера:
-'''json
+```json
 {
     "host": "127.0.0.1",
     "port": 12345,
     "max_users": 10,
     "log_level": 6
 }
-'''
+```
 
 ### Server
 1. Install dependencies:
