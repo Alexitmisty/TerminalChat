@@ -1,4 +1,4 @@
-# Console Chat Application
+# Приложение консольного чата
 
 ## Overview
 This is a simple console-based chat application implemented in Python. It includes both server and client components.
