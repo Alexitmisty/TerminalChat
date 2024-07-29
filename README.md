@@ -1,7 +1,7 @@
 # Приложение консольного чата
 
-## Overview
-This is a simple console-based chat application implemented in Python. It includes both server and client components.
+## Обзор
+Это простая реализация чат-сервера и клиента с использованием Python. Сервер обрабатывает несколько клиентов, ведет логи и управление пользователями (регистрация, смена псевдонимов и т. д.). Клиенты могут общаться друг с другом, указав никнейм получателя.
 
 ## Features
 - User registration with nicknames.
@@ -9,11 +9,25 @@ This is a simple console-based chat application implemented in Python. It includ
 - Server logs actions using syslog.
 - Server configuration via a config file.
 
-## Requirements
-- Python 3.10+
-- Ubuntu 20.04
+## Предварительные условия
+Python 3.x установлен в вашей системе.
 
-## Setup
+## Файлы
+server.py: реализация сервера чата.
+client.py: реализация клиента чата.
+config.json: файл конфигурации сервера.
+client.sh: скрипт для запуска клиента.
+
+## Конфигурация
+Файл config.json содержит конфигурацию сервера:
+'''json
+{
+    "host": "127.0.0.1",
+    "port": 12345,
+    "max_users": 10,
+    "log_level": 6
+}
+'''
 
 ### Server
 1. Install dependencies:
