@@ -28,36 +28,46 @@ client.sh: скрипт для запуска клиента.
     "log_level": 6
 }
 ```
+-host: IP-адрес, к которому будет привязан сервер.
+-port: номер порта, который будет прослушивать сервер.
+-max_users: Максимальное количество одновременных пользователей.
+-log_level: уровень ведения журнала (например, 6 для INFO).
 
-### Server
-1. Install dependencies:
+## Настройка и развертывание
+
+### Сервер
+1. Клонируйте репозиторий или загрузите файлы на свой локальный компьютер.
+2. Перейдите в каталог, в котором находятся файлы.
+3. Запустите сервер через терминал командой
     ```sh
-    sudo apt-get install python3.10
+    sh server.sh
     ```
-2. Create a `config.json` file with the following content:
-    ```json
-    {
-        "host": "127.0.0.1",
-        "port": 12345,
-        "max_users": 10,
-        "log_level": 6
-    }
-    ```
-3. Run the server:
+
+### Клиент
+1. Убедитесь, что сервер запущен
+2. Перейдите в каталог, в котором находятся файлы.
+3. Запустите клиент через терминал командой
     ```sh
-    python3 server.py --config config.json
+    sh client.sh
     ```
+## Применение
+### Сервер
+- Когда сервер запускается, он будет прослушивать клиентские соединения.
+- Журналы будут записываться в syslog.
 
-### Client
-1. Run the client:
-    ```sh
-    python3 client.py
-    ```
-
-## Usage
-1. Start the server as described above.
-2. Start multiple client instances to simulate multiple users.
-3. Follow the prompts to register with a nickname and send messages.
-
-## Note
-- This is a basic implementation for educational purposes. Production code should include more robust error handling and security features.
+### Клиент
+1. Подключение
+   - Когда клиент подключится к серверу, ему будет предложено ввести никнейм.
+   - Пример: `Enter your nickname: Алексей`
+2. Ввод занятого имени
+   - При введении занятого имени клиенту присылается сообщение 'Nickname {nickname} is already taken' после чего клиент, должен зарегистрироваться под другим именем
+   - Пример: `/register Макс`
+3. Смена ника
+   - Используйте команду `/nick <никнейм>`
+   - Пример `/nick Андрей`
+4. Отправка сообщения
+   - Для отправки сообщения используйте следующий формат: `<никнейм> <сообщение>`
+   - Пример: `Андрей Привет, как дела?`
+5. Приём сообщения
+   -Сообщение будет отражаться у клиента в формате:  `<никнейм>: <сообщение>`
+   - Пример: `Макс: Привет, как дела?`
